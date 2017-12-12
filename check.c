@@ -6,7 +6,7 @@
 /*   By: lesanche <lesanche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 16:50:17 by alamy             #+#    #+#             */
-/*   Updated: 2017/12/11 17:28:29 by lesanche         ###   ########.fr       */
+/*   Updated: 2017/12/12 14:02:52 by lesanche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int			is_shape_valid(char *str, int length)
 	int col;
 	int i;
 
-	if ((length + 1) % 21 != 0 || (length > 546) || length <= 20)
+	if ((length + 1) % 21 != 0 || (length > 546) || length < 20)
 		return (0);
 	row = 0;
 	col = 0;
@@ -88,14 +88,14 @@ static int	is_tetri_valid(char **tetri)
 
 int			check_tab(char ***tab, int nb_block)
 {
-	int i;
+	int num_block;
 
-	i = 0;
-	while (i < nb_block)
+	num_block = 0;
+	while (num_block < nb_block)
 	{
-		if (is_tetri_valid(tab[i]) == 0)
+		if (is_tetri_valid(tab[num_block]) == 0)
 			return (0);
-		i++;
+		num_block++;
 	}
 	return (1);
 }
